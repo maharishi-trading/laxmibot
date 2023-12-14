@@ -44,7 +44,7 @@ class MultiExchangeCryptoBot:
         print("Orders placed:", orders)
 
 # load Exchange credentials from a module
-from keys.dont_share_credentials import dont_share_credentials
+from keys.do_not_share_credentials import dont_share_credentials
 
 # Instantiate and run the bot
 bot = MultiExchangeCryptoBot(dont_share_credentials())
