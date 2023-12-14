@@ -1,4 +1,7 @@
-# Installation
+# LaxmiBot
+![Icon for Laxmi Bot.png](resources%2FIcon%20for%20Laxmi%20Bot.png)
+LaxmiBot is a bot that automatically buys and sells crytpo on multiple exchanges.
+
 ## Requirements
 - Python 3.6+
 - Anaconda 3
