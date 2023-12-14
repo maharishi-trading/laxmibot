@@ -1,4 +1,5 @@
 import ccxt
+import json
 import time
 
 class MultiExchangeCryptoBot:
@@ -41,11 +42,13 @@ class MultiExchangeCryptoBot:
         print("Current prices:", prices)
 
         orders = self.place_market_order(symbol, order_type, amount)
-        print("Orders placed:", orders)
+        # pretty print the response
+        print("Orders:", json.dumps(orders, indent=4, sort_keys=True))
+
 
 # load Exchange credentials from a module
 from keys.do_not_share_credentials import dont_share_credentials
 
 # Instantiate and run the bot
 bot = MultiExchangeCryptoBot(dont_share_credentials())
-bot.run('BTC/EUR', 'buy', 0.0000900)
+bot.run('BTC/EUR', 'buy', 0.0003)

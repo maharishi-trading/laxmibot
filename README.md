@@ -1,5 +1,5 @@
 # LaxmiBot
-![Icon for Laxmi Bot.png](resources%2FIcon%20for%20Laxmi%20Bot.png)
+<img alt="Icon for Laxmi Bot.png" width="50" height="50" src="resources%2FIcon%20for%20Laxmi%20Bot.png" />
 LaxmiBot is a bot that automatically buys and sells crytpo on multiple exchanges.
 
 ## Requirements
@@ -36,6 +36,90 @@ reasonable worst case fees are:
 | ~~CEX.io~~       | 0.15%   | 0.25%   |
 | _Average_    | _0.23%_ | _0.33%_ |
 
-### Bitstamp Requirements
-"Minimum order size is 10 EUR."
+### Volume Requirements
+- Bitstamp: Minimum order size is 10 EUR.
+- Kraken: 0.0001 BTC
 
+## Example results
+
+- Current Prices 
+```json 
+{"kraken": 39414.8, "bitstamp": 39420.0}
+```
+- Orders 
+```json 
+{
+    "bitstamp": {
+        "amount": 0.0003,
+        "average": null,
+        "clientOrderId": null,
+        "cost": null,
+        "datetime": "2023-12-14T08:31:30.846Z",
+        "fee": null,
+        "fees": [],
+        "filled": null,
+        "id": "1694546805510145",
+        "info": {
+            "amount": "0.00030000",
+            "datetime": "2023-12-14 08:31:30.846000",
+            "id": "1694546805510145",
+            "market": "BTC/EUR",
+            "price": "39420",
+            "type": "0"
+        },
+        "lastTradeTimestamp": null,
+        "lastUpdateTimestamp": null,
+        "postOnly": null,
+        "price": 39420.0,
+        "reduceOnly": null,
+        "remaining": null,
+        "side": "buy",
+        "status": null,
+        "stopLossPrice": null,
+        "stopPrice": null,
+        "symbol": "BTC/EUR",
+        "takeProfitPrice": null,
+        "timeInForce": null,
+        "timestamp": 1702542690846,
+        "trades": [],
+        "triggerPrice": null,
+        "type": "market"
+    },
+    "kraken": {
+        "amount": 0.0003,
+        "average": null,
+        "clientOrderId": null,
+        "cost": null,
+        "datetime": null,
+        "fee": null,
+        "fees": [],
+        "filled": null,
+        "id": "OOT4Y3-OZ5HM-VCJG56",
+        "info": {
+            "descr": {
+                "order": "buy 0.00030000 XBTEUR @ market"
+            },
+            "txid": [
+                "OOT4Y3-OZ5HM-VCJG56"
+            ]
+        },
+        "lastTradeTimestamp": null,
+        "lastUpdateTimestamp": null,
+        "postOnly": false,
+        "price": null,
+        "reduceOnly": null,
+        "remaining": null,
+        "side": "buy",
+        "status": null,
+        "stopLossPrice": null,
+        "stopPrice": null,
+        "symbol": "BTC/EUR",
+        "takeProfitPrice": null,
+        "timeInForce": "IOC",
+        "timestamp": null,
+        "trades": [],
+        "triggerPrice": null,
+        "type": "market"
+    }
+}
+```
