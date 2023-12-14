@@ -1,0 +1,9 @@
+name: your_environment_name
+channels:
+  - defaults
+dependencies:
+  - python=3.8  # or any version you prefer
+  - pyyaml
+  - pip
+  - pip:
+    - ccxt
