@@ -26,3 +26,11 @@ class AbstractExchange(metaclass=ABCMeta):
             return None
 
 
+    def fetch_ohlcv(self, symbol, timeframe='1m', since=None, limit=None):
+        try:
+            # Fetch real OHLCV data from the exchange
+            ohlcv = self.exchange.fetch_ohlcv(symbol, timeframe, since, limit)
+            return ohlcv
+        except Exception as e:
+            logging.error(f"Error fetching OHLCV: {e}")
+            return None
