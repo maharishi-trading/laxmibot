@@ -1,21 +1,17 @@
 import logging
 
+from laxmi.exchange.AbstractExchange import AbstractExchange
+
 # Set up logging configuration
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-class PaperExchange:
+
+
+class PaperExchange(AbstractExchange):
     def __init__(self, exchange_class):
+        super().__init__()
         self.balances = {'BTC': 0.01, 'ETH': 0.10, 'EUR': 100}  # Instance-level balance
         self.exchange = exchange_class()  # Initialize real exchange class for data
         self.order_book = []
-
-    def fetch_ticker(self, symbol):
-        try:
-            # Fetch real ticker data from the exchange
-            ticker = self.exchange.fetch_ticker(symbol)
-            return ticker
-        except Exception as e:
-            logging.error(f"Error fetching ticker: {e}")
-            return None
 
     def create_market_buy_order(self, symbol, amount):
         # Simulate market buy order
