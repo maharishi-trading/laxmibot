@@ -17,13 +17,13 @@ LaxmiBot is a bot that automatically buys and sells crytpo on multiple exchanges
 add new packages to environment.yml if you install new packages.
 
 ## Scoring table for Exchanges selection
-| Feature               | Points    | Bitstamp                                                                  | Coinbase                                                                 | crypto.com                                                                  | Kraken                                                                  | CEX.io |
-|-----------------------|-----------|---------------------------------------------------------------------------|--------------------------------------------------------------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------------|--------|
-| Reserves Data         | MANDATORY | [yes](https://www.geckoterminal.com/proof_of_reserves/exchanges/bitstamp) | [yes](https://investor.coinbase.com/financials/sec-filings/default.aspx) | [yes](https://www.geckoterminal.com/proof_of_reserves/exchanges/crypto_com) | [yes](https://www.geckoterminal.com/proof_of_reserves/exchanges/kraken) | NO     |
-| No Tax Haven          | 10 points | 10                                                                        | 10                                                                       | 0                                                                           | 10                                                                      |        |
-| EU Residency          | 10 points | 10                                                                        | 0                                                                        | 10                                                                          | 0                                                                       | 10
-| No Technical problems | MANDATORY | OK                                                                        | New API key format not clear                                             | Sign-Up process brittle.                                                    | OK                                                                      |
-| Lindy Effect          | 10 points | 10                                                                        | 10                                                                       | 3                                                                           | 10                                                                      | 10     |
+| Feature               | Points    | Bitstamp   | Coinbase   | crypto.com| Kraken      | CEX.io | Binance |
+|-----------------------|-----------|------------|------------|------------|------------------------------|--------|---------|
+| Reserves Data         | MANDATORY | [yes](https://www.geckoterminal.com/proof_of_reserves/exchanges/bitstamp) | [yes](https://investor.coinbase.com/financials/sec-filings/default.aspx) | [yes](https://www.geckoterminal.com/proof_of_reserves/exchanges/crypto_com) | [yes](https://www.geckoterminal.com/proof_of_reserves/exchanges/kraken) | NO     | NO      |
+| No Tax Haven          | 10 points | 10         | 10         | 0          | 10         | 10     | 0    |
+| EU License            | 10 points | 10         | 10 Bafin   | 10         | 0          | 10     | 0       |
+| No Technical problems | MANDATORY | OK         | API key?   | Sign-Up?   | OK         | OK     | OK      |
+| Lindy Effect          | 10 points | 10         | 10         | 3          | 10         | 10     | 5    |
 ## Trading fees table
 reasonable worst case fees are:
 
@@ -40,86 +40,9 @@ reasonable worst case fees are:
 - Bitstamp: Minimum order size is 10 EUR.
 - Kraken: 0.0001 BTC
 
-## Example results
+## Requirements and Properties
+- [x] **Homeostasis:** Withdrawing and depositing assets leads to investment reorganization automatically. For example: if you deposit 1000 EUR, the bot will automatically buy 1000 EUR worth of crypto if the signal is on buy. If you withdraw 0.01 BTC, the bot is in a well-defined state after the withdrawal.
+- [x] **Crash resistance:** the bot will automatically buy options to hedge against a substantial crash of x% in t time.
+- [x] **Counterparty risk mitigation:** the bot will always trade on N exchanges simultaneously to reduce insolvency risk.
 
-- Current Prices 
-```json 
-{"kraken": 39414.8, "bitstamp": 39420.0}
-```
-- Orders 
-```json 
-{
-    "bitstamp": {
-        "amount": 0.0003,
-        "average": null,
-        "clientOrderId": null,
-        "cost": null,
-        "datetime": "2023-12-14T08:31:30.846Z",
-        "fee": null,
-        "fees": [],
-        "filled": null,
-        "id": "1694546805510145",
-        "info": {
-            "amount": "0.00030000",
-            "datetime": "2023-12-14 08:31:30.846000",
-            "id": "1694546805510145",
-            "market": "BTC/EUR",
-            "price": "39420",
-            "type": "0"
-        },
-        "lastTradeTimestamp": null,
-        "lastUpdateTimestamp": null,
-        "postOnly": null,
-        "price": 39420.0,
-        "reduceOnly": null,
-        "remaining": null,
-        "side": "buy",
-        "status": null,
-        "stopLossPrice": null,
-        "stopPrice": null,
-        "symbol": "BTC/EUR",
-        "takeProfitPrice": null,
-        "timeInForce": null,
-        "timestamp": 1702542690846,
-        "trades": [],
-        "triggerPrice": null,
-        "type": "market"
-    },
-    "kraken": {
-        "amount": 0.0003,
-        "average": null,
-        "clientOrderId": null,
-        "cost": null,
-        "datetime": null,
-        "fee": null,
-        "fees": [],
-        "filled": null,
-        "id": "OOT4Y3-OZ5HM-VCJG56",
-        "info": {
-            "descr": {
-                "order": "buy 0.00030000 XBTEUR @ market"
-            },
-            "txid": [
-                "OOT4Y3-OZ5HM-VCJG56"
-            ]
-        },
-        "lastTradeTimestamp": null,
-        "lastUpdateTimestamp": null,
-        "postOnly": false,
-        "price": null,
-        "reduceOnly": null,
-        "remaining": null,
-        "side": "buy",
-        "status": null,
-        "stopLossPrice": null,
-        "stopPrice": null,
-        "symbol": "BTC/EUR",
-        "takeProfitPrice": null,
-        "timeInForce": "IOC",
-        "timestamp": null,
-        "trades": [],
-        "triggerPrice": null,
-        "type": "market"
-    }
-}
-```
+
