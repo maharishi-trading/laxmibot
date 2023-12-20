@@ -41,7 +41,7 @@ reasonable worst case fees are:
 - Kraken: 0.0001 BTC
 
 ## Requirements and Properties
-- [x] **Homeostasis:** Withdrawing and depositing assets leads to investment reorganization automatically. For example: if you deposit 1000 EUR, the bot will automatically buy 1000 EUR worth of crypto if the signal is on buy. If you withdraw 0.01 BTC, the bot is in a well-defined state after the withdrawal.
+- [x] **Homeostasis:** Withdrawing and depositing assets leads to investment reorganization automatically. For example: if you deposit 1000 EUR, the bot will automatically buy 1000 EUR worth of crypto if the signal is on buy. If you withdraw 0.01 BTC, the bot is in a well-defined state after the withdrawal. If I deposit 10 DOGE it will be converted into Bitcoin or EUR automatically depending on the current signal.
 - [x] **Crash resistance:** the bot will automatically buy options to hedge against a substantial crash of x% in t time.
 - [x] **Counterparty risk mitigation:** the bot will always trade on N exchanges simultaneously to reduce insolvency risk.
 
